@@ -14,7 +14,7 @@ const Order = () => {
 				</div>
 				<div className={_.wrap_list}>
 					<ul className={_.list}>
-						{OrderList.map(item => <OrderGoods item={item} />)}
+						{OrderList.map((item, i) => <OrderGoods key={i} item={item} />)}
 					</ul>
 					<div className={_.total}>
 						<p>Итого</p>
