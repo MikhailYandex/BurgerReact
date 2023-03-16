@@ -1,20 +1,21 @@
 import React from "react";
+import { API_URI } from "../../const";
 import Count from "../Count/Count";
-import _ from './OrderGoods.module.css'
+import _ from "./OrderGoods.module.css";
 
-const OrderGoods = ({item}) => {
+const OrderGoods = ({ title, price, image, count, id, weight }) => {
   return (
     <li className={_.item}>
-      <img className={_.image} src="img/burger_1.jpg" alt={item}/>
+      <img className={_.image} src={`${API_URI}/${image}`} alt={title} />
       <div className={_.goods}>
-        <h3 className={_.title}>{item}</h3>
-        <p className={_.weight}>512г</p>
+        <h3 className={_.title}>{title}</h3>
+        <p className={_.weight}>{weight}г</p>
         <p className={_.price}>
-          1279
-          <span className="currency">₽</span>
+          {price}
+          <span className="currency">&nbsp;₽</span>
         </p>
       </div>
-			<Count count={1}/>
+      <Count count={count} id={id} />
     </li>
   );
 };

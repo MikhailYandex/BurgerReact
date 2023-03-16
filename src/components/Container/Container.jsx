@@ -5,4 +5,4 @@ const Container = ({ children, className }) => {
   return <div className={classNames(_.container, className)}>{children}</div>;
 };
 
-export default Container
+export default Container;
