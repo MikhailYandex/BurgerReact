@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { productRequestAsync } from "../../store/product/productSlice";
 
 const Catalog = () => {
-  const { products } = useSelector((state) => state.product);
+  const { products, flagProduct } = useSelector((state) => state.product);
   const dispatch = useDispatch();
   const { category, activeCategory } = useSelector((state) => state.category);
 
@@ -33,9 +33,11 @@ const Catalog = () => {
                 ))}
               </ul>
             ) : (
-              <p className={_.empty}>
-                К сожалению товаров в данной категории нет
-              </p>
+              flagProduct && (
+                <p className={_.empty}>
+                  К сожалению товаров в данной категории нет
+                </p>
+              )
             )}
           </div>
         </div>

@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import classNames from "classnames";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../store/modalDelivery/ModalDeliverySlice";
 import { orderRequestAsync } from "../../store/order/orderSlice";
@@ -11,14 +12,23 @@ const Order = () => {
   );
   const dispatch = useDispatch();
 
+  const [openOrder, setOpenOrder] = useState(false);
+
   useEffect(() => {
     dispatch(orderRequestAsync());
   }, [orderList.length]);
 
   return (
-    <div className={_.order}>
+    <div className={classNames(_.order, openOrder ? _.order_open : "")}>
       <section className={_.wrapper}>
-        <div className={_.header} tabIndex="0" role="button">
+        <div
+          className={_.header}
+          tabIndex="0"
+          role="button"
+          onClick={() => {
+            setOpenOrder(!openOrder);
+          }}
+        >
           <h2 className={_.title}>Корзина</h2>
           <span className={_.count}>{totalCount}</span>
         </div>
