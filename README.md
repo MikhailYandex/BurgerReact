@@ -11,5 +11,6 @@
 ### Используемые технологии
 * React.js
 * Redux ToolKit
+* Javascript
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/zAASWcZBpUyFVnPFAYX8HH/YouMeal-(youtube)?node-id=0-1&t=PaTU4RDIrokxSwAl-0)
